@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://bl7m1pq3mpjgp" path="res://assets/Tilemap/tilemap-backgrounds.png" id="2_cjisp"]
-[ext_resource type="PackedScene" uid="uid://5aj5jnviqsob" path="res://scenes/player.tscn" id="3_uo3k0"]
+[ext_resource type="PackedScene" uid="uid://dhmv0dbpwms38" path="res://scenes/player.tscn" id="3_uo3k0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
@@ -604,3 +604,6 @@ layer_0/tile_data = PackedInt32Array(262146, 65536, 3, 262147, 131072, 3, 262148
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_uo3k0")]
 position = Vector2(51, 63)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(4, 4)
