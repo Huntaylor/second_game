@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
 [ext_resource type="PackedScene" uid="uid://5aj5jnviqsob" path="res://scenes/player.tscn" id="3_uo3k0"]
 [ext_resource type="PackedScene" uid="uid://c3i5xm7me76p3" path="res://ladder.tscn" id="4_1v678"]
+[ext_resource type="PackedScene" uid="uid://7eej0c217t81" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
+[ext_resource type="Script" path="res://scripts/falling_enemy.gd" id="5_th35o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
@@ -866,5 +868,5 @@ position = Vector2(1954, -194)
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_uo3k0")]
 position = Vector2(44, 61)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
