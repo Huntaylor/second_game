@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://7eej0c217t81"]
+
+[ext_resource type="Texture2D" uid="uid://daeuxk8kcsthn" path="res://assets/Tiles/Characters/tile_0011.png" id="1_mn57x"]
+[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemy_zone.tscn" id="2_ayhfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejsl4"]
+size = Vector2(18, 18)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_mn57x")
+
+[node name="EnemyZone" parent="." instance=ExtResource("2_ayhfl")]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyZone"]
+shape = SubResource("RectangleShape2D_ejsl4")
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 55)
+
+[connection signal="body_entered" from="EnemyZone" to="EnemyZone" method="_on_body_entered"]

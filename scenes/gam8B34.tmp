@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cixkei8w34nfk"]
+[gd_scene load_steps=9 format=3 uid="uid://cixkei8w34nfk"]
 
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://bl7m1pq3mpjgp" path="res://assets/Tilemap/tilemap-backgrounds.png" id="2_cjisp"]
 [ext_resource type="PackedScene" uid="uid://5aj5jnviqsob" path="res://scenes/player.tscn" id="3_uo3k0"]
 [ext_resource type="PackedScene" uid="uid://7eej0c217t81" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="Script" path="res://scripts/falling_enemy.gd" id="5_th35o"]
-
-[sub_resource type="GDScript" id="GDScript_bgeet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
@@ -600,7 +598,6 @@ sources/0 = SubResource("TileSetAtlasSource_p67dm")
 sources/1 = SubResource("TileSetAtlasSource_jch7s")
 
 [node name="Game" type="Node2D"]
-script = SubResource("GDScript_bgeet")
 
 [node name="ForegroundMap" type="TileMap" parent="."]
 texture_filter = 3
@@ -610,12 +607,12 @@ layer_0/name = "Background"
 layer_1/name = "Mid"
 layer_1/tile_data = PackedInt32Array(262146, 65536, 3, 262147, 131072, 3, 262148, 131072, 3, 262149, 131072, 3, 262150, 131072, 3, 262151, 131072, 3, 262152, 131072, 3, 262153, 131072, 3, 262154, 131072, 3, 262155, 131072, 3, 262156, 131072, 3, 262157, 131072, 3, 262158, 131072, 3, 262159, 131072, 3, 262160, 196608, 3, 327682, 65536, 6, 393218, 65536, 7, 327696, 196608, 6, 393232, 196608, 7, 327684, 131072, 6, 393220, 131072, 7, 327683, 131072, 6, 393219, 131072, 7, 327685, 131072, 6, 393221, 131072, 7, 327686, 131072, 6, 393222, 131072, 7, 327687, 131072, 6, 393223, 131072, 7, 327688, 131072, 6, 393224, 131072, 7, 327689, 131072, 6, 393225, 131072, 7, 327690, 131072, 6, 393226, 131072, 7, 327691, 131072, 6, 393227, 131072, 7, 327692, 131072, 6, 393228, 131072, 7, 327693, 131072, 6, 393229, 131072, 7, 327694, 131072, 6, 393230, 131072, 7, 327695, 131072, 6, 393231, 131072, 7)
 
-[node name="FallingEnemy1" parent="." instance=ExtResource("4_fv6ee")]
-position = Vector2(262, 12)
-script = ExtResource("5_th35o")
-
 [node name="Player" parent="." instance=ExtResource("3_uo3k0")]
 position = Vector2(51, 63)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+
+[node name="FallingEnemy1" parent="." instance=ExtResource("4_fv6ee")]
+position = Vector2(262, 12)
+script = ExtResource("5_th35o")
