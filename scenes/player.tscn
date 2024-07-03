@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhmv0dbpwms38"]
+[gd_scene load_steps=9 format=3 uid="uid://5aj5jnviqsob"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_nyfdt"]
 [ext_resource type="Texture2D" uid="uid://cko08rwxwfwh" path="res://assets/Tiles/Characters/tile_0002.png" id="2_ti2t1"]
 [ext_resource type="Texture2D" uid="uid://dtlpidx8clnll" path="res://assets/Tiles/Characters/tile_0003.png" id="2_x1eeh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c5ha"]
+atlas = ExtResource("2_ti2t1")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4gfd"]
 atlas = ExtResource("2_x1eeh")
@@ -16,13 +20,21 @@ region = Rect2(0, 0, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4c5ha")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_i4gfd")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cnghp")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 10.0
 }]
 
@@ -35,8 +47,8 @@ script = ExtResource("1_nyfdt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d8uqm")
-autoplay = "default"
-frame_progress = 0.458328
+animation = &"idle"
+autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_200yp")
