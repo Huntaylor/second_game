@@ -40,7 +40,7 @@ position = Vector2(0, -64)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_2vblc")
-animation = &"falling"
+animation = &"idle"
 
 [node name="EnemyZone" parent="." instance=ExtResource("2_ayhfl")]
 collision_layer = 2
