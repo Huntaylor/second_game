@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://7eej0c217t81"]
+[gd_scene load_steps=8 format=3 uid="uid://c2h65ntylr8fa"]
 
 [ext_resource type="Texture2D" uid="uid://daeuxk8kcsthn" path="res://assets/Tiles/Characters/tile_0011.png" id="1_mn57x"]
 [ext_resource type="Texture2D" uid="uid://5hsqw01jcoa8" path="res://assets/Tiles/Characters/tile_0012.png" id="1_pfk7d"]
-[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemy_zone.tscn" id="2_ayhfl"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_zone.tscn" id="2_ayhfl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahyvg"]
 atlas = ExtResource("1_pfk7d")
