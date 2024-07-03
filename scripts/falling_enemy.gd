@@ -43,5 +43,5 @@ func _dropEnemy():
 func _goUp():
 	animated_sprite.play("idle")
 	hasPlayerPassed =false
-	direction = 0
+	direction = -1
 	isFalling = false
