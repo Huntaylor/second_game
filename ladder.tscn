@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3i5xm7me76p3"]
+
+[ext_resource type="Texture2D" uid="uid://30i2s5rvyd5r" path="res://assets/Tilemap/tilemap.png" id="1_ei01h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqmpr"]
+size = Vector2(22, 20)
+
+[node name="Ladder" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.19, 1.10377)
+texture = ExtResource("1_ei01h")
+region_enabled = true
+region_rect = Rect2(208.924, 56.4911, 18.1541, 19.1178)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 3
+texture_repeat = 2
+shape = SubResource("RectangleShape2D_jqmpr")
+one_way_collision = true
