@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player.tscn" id="3_uo3k0"]
 [ext_resource type="PackedScene" uid="uid://dx5cjuna07q7q" path="res://scenes/ladder.tscn" id="4_1v678"]
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
-[ext_resource type="PackedScene" uid="uid://b8207rw6v433f" path="res://scenes/rolling_enemy.tscn" id="6_cvk4k"]
+[ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/rolling_enemy.tscn" id="6_cvk4k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
@@ -864,5 +864,8 @@ zoom = Vector2(4, 4)
 [node name="FallingEnemy" parent="Enemies" instance=ExtResource("4_fv6ee")]
 position = Vector2(353, 4)
 
-[node name="Node2D" parent="." instance=ExtResource("6_cvk4k")]
-position = Vector2(209, 60)
+[node name="RollingEnemy" parent="Enemies" instance=ExtResource("6_cvk4k")]
+position = Vector2(353, 59)
+
+[node name="RollingEnemy2" parent="Enemies" instance=ExtResource("6_cvk4k")]
+position = Vector2(2960, 23)
