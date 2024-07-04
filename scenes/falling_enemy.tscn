@@ -35,7 +35,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejsl4"]
 size = Vector2(18, 18)
 
-[node name="Node2D" type="Node2D"]
+[node name="FallingEnemy" type="Node2D"]
 position = Vector2(0, -64)
 script = ExtResource("1_8yook")
 
@@ -45,7 +45,8 @@ sprite_frames = SubResource("SpriteFrames_2vblc")
 animation = &"idle"
 
 [node name="EnemyZone" parent="." instance=ExtResource("2_ayhfl")]
-collision_layer = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyZone"]
 shape = SubResource("RectangleShape2D_ejsl4")

@@ -11,11 +11,10 @@ func _on_body_entered(_body):
 		lifeTaken = true
 
 func take_life():
-	lives = lives -1
+	lives = lives - 1
 	print(lives)
 	if lives <= 0:
 		print('You died')
-
 
 func _on_timer_timeout():
 	lifeTaken = false

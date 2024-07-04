@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/rolling_enemy.gd" id="1_rgice"]
 [ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemy_zone.tscn" id="2_i7jqw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4eb43"]
-radius = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kumob"]
+size = Vector2(18, 18)
 
 [node name="RollingEnemy" type="Node2D"]
 script = ExtResource("1_rgice")
@@ -14,12 +14,11 @@ script = ExtResource("1_rgice")
 texture_filter = 3
 texture = ExtResource("1_bpec7")
 
-[node name="enemy_zone" parent="." instance=ExtResource("2_i7jqw")]
-collision_layer = 3
-collision_mask = 3
+[node name="EnemyZone" parent="." instance=ExtResource("2_i7jqw")]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_zone"]
-shape = SubResource("CircleShape2D_4eb43")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyZone"]
+shape = SubResource("RectangleShape2D_kumob")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-100, 0)
@@ -28,4 +27,5 @@ collision_mask = 2
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 
+[connection signal="body_entered" from="EnemyZone" to="EnemyZone" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
