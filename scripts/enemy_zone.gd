@@ -2,5 +2,5 @@ extends Area2D
 
 
 func _on_body_entered(_body):
-	pass
+	get_tree().reload_current_scene()
 
