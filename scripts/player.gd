@@ -8,6 +8,7 @@ const GRAVITY := 1500.0
 
 
 @onready var animated_sprite= $AnimatedSprite2D
+@onready var game_manager = %GameManager
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

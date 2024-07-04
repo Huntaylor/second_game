@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cixkei8w34nfk"]
+[gd_scene load_steps=14 format=3 uid="uid://cixkei8w34nfk"]
 
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/rolling_enemy.tscn" id="6_cvk4k"]
 [ext_resource type="PackedScene" uid="uid://dpudabbi7wgbq" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="8_u1lho"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
@@ -884,7 +885,7 @@ position = Vector2(3647, 601)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_uo3k0")]
 position = Vector2(54, 60)
-collision_layer = 2
+collision_layer = 3
 
 [node name="Player#Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(4, 4)
@@ -908,3 +909,7 @@ position = Vector2(60, 259)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill_zone"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="kill_zone"]
+
+[node name="GameManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_u1lho")
