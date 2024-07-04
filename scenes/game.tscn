@@ -885,7 +885,7 @@ texture_filter = 1
 position = Vector2(3647, 601)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_uo3k0")]
-position = Vector2(54, 58)
+position = Vector2(54, 60)
 collision_layer = 2
 
 [node name="Player#Camera2D" type="Camera2D" parent="CharacterBody2D"]
