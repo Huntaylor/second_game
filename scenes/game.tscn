@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="Script" path="res://scripts/falling_enemy.gd" id="5_th35o"]
 [ext_resource type="PackedScene" uid="uid://3q3or6eqv0a4" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
-[ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://scenes/PixelOperator8.ttf" id="8_2ay4p"]
+[ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://assets/Fonts/PixelOperator8.ttf" id="8_2ay4p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
