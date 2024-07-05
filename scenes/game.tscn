@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
 [ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player.tscn" id="3_uo3k0"]
-[ext_resource type="PackedScene" path="res://scenes/ladder.tscn" id="4_1v678"]
-[ext_resource type="PackedScene" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
+[ext_resource type="PackedScene" uid="uid://0b1adio4l0fl" path="res://scenes/ladder.tscn" id="4_1v678"]
+[ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="Script" path="res://scripts/falling_enemy.gd" id="5_th35o"]
 [ext_resource type="PackedScene" uid="uid://du3nk1g8qqa7x" path="res://pickups/coin.tscn" id="7_7gmj6"]
 [ext_resource type="PackedScene" uid="uid://chiwc15p17jcq" path="res://pickups/heart.tscn" id="8_daiym"]
@@ -1201,3 +1201,12 @@ position = Vector2(1251, 236)
 
 [node name="heart5" parent="." instance=ExtResource("8_daiym")]
 position = Vector2(3428, 627)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -90.0
+offset_top = 79.0
+offset_right = 37.0
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(0.077876, 0.406351, 0.368547, 1)
+theme_override_font_sizes/font_size = 24
+text = "MOVE A&D"
