@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://chiwc15p17jcq"]
+
+[ext_resource type="Script" path="res://scripts/heart.gd" id="1_l3jlm"]
+[ext_resource type="Texture2D" uid="uid://ddji2oou6pmct" path="res://assets/Tiles/tile_0045.png" id="1_n7uho"]
+[ext_resource type="Texture2D" uid="uid://cpgwmj0vk2jcd" path="res://assets/Tiles/tile_0044.png" id="2_clyj8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5sx0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n7uho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_clyj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_n7uho")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5pkrd"]
+radius = 6.0
+
+[node name="heart" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_l3jlm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5sx0w")
+autoplay = "default"
+frame_progress = 0.144697
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5pkrd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
