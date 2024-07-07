@@ -8,6 +8,7 @@ const GRAVITY := 1500.0
 
 var isDead = false
 
+@onready var damage_sfx = $DamageSFX
 @onready var game_manager = %GameManager
 @onready var flash_animation = $FlashAnimation
 @onready var animated_sprite= $AnimatedSprite2D
