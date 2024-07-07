@@ -1,14 +1,13 @@
 extends Area2D
-@onready var timer = $Timer
-@onready var game_manager = %GameManager
+signal take_damage
+
 
 
 func _on_body_entered(_body):
-	if game_manager.lifeTaken == false and game_manager.lives > 0:
-		timer.start()
-		game_manager.take_life()
+	if (_body.name == 'Player'):
+		emit_signal('take_damage')
 
 
 
-func _on_timer_timeout():
-	game_manager.lifeTaken = false
+
+

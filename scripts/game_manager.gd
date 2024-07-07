@@ -1,10 +1,13 @@
 extends Node
-var lives = 3
-var lifeTaken = false
 
-func take_life():
-	lifeTaken = true
+signal flash_animation
+signal player_death
+
+var lives = 3
+
+func take_damage():
+	emit_signal('flash_animation')
 	lives = lives - 1
-	print(lives)
 	if lives <= 0:
-		print('You died')
+		emit_signal('player_death')
+
