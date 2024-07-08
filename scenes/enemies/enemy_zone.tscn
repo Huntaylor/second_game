@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfobr8wcx6cjb"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_zone.gd" id="1_8lgnw"]
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_8lgnw")
+
+[connection signal="take_damage" from="." to="." method="_on_take_damage"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://v0e220dnttn8"]
+
+[ext_resource type="Texture2D" uid="uid://csik30soo4pr3" path="res://assets/Tiles/Characters/tile_0008.png" id="1_bpec7"]
+[ext_resource type="Script" path="res://scripts/enemies/rolling_enemy.gd" id="1_kdimf"]
+[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemies/enemy_zone.tscn" id="2_i7jqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_empxi"]
+radius = 12.0
+
+[node name="RollingEnemy" type="Node2D" groups=["enemies"]]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_kdimf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bpec7")
+
+[node name="EnemyZone" parent="." instance=ExtResource("2_i7jqw")]
+disable_mode = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyZone"]
+shape = SubResource("CircleShape2D_empxi")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+collision_mask = 2
+
+[node name="RayCastLeftStop" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
+collision_mask = 2
+
+[node name="RayCastRightStop" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="body_entered" from="EnemyZone" to="EnemyZone" method="_on_body_entered"]
+[connection signal="take_damage" from="EnemyZone" to="." method="_on_enemy_zone_take_damage"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
