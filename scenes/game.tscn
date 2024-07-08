@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
-[ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player.tscn" id="3_uo3k0"]
+[ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player/player.tscn" id="3_uo3k0"]
 [ext_resource type="PackedScene" uid="uid://dx5cjuna07q7q" path="res://scenes/ladder.tscn" id="4_1v678"]
-[ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
+[ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/enemies/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="PackedScene" uid="uid://dpudabbi7wgbq" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
 [ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://assets/Fonts/PixelOperator8.ttf" id="8_2ay4p"]
-[ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/rolling_enemy.tscn" id="9_tgkx4"]
-[ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/rolling_enemy_block.tscn" id="10_av1lo"]
+[ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/enemies/rolling_enemy/rolling_enemy.tscn" id="9_tgkx4"]
+[ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/enemies/rolling_enemy/rolling_enemy_block.tscn" id="10_av1lo"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_it6at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
@@ -845,6 +845,9 @@ sources/6 = SubResource("TileSetAtlasSource_5hm2y")
 unique_name_in_owner = true
 script = ExtResource("11_it6at")
 
+[node name="Timer" type="Timer" parent="GameManager"]
+wait_time = 0.75
+
 [node name="ForegroundMap" type="TileMap" parent="."]
 texture_filter = 3
 tile_set = SubResource("TileSet_t2eyt")
@@ -1082,5 +1085,15 @@ position = Vector2(3072, 148)
 texture_filter = 1
 position = Vector2(3647, 601)
 
+[node name="RollingEnemy" parent="." instance=ExtResource("9_tgkx4")]
+position = Vector2(1782, 27)
+
+[node name="RollingEnemyBlock" parent="." instance=ExtResource("10_av1lo")]
+position = Vector2(1798, 36)
+
+[node name="RollingEnemyBlock2" parent="." instance=ExtResource("10_av1lo")]
+position = Vector2(1281, 36)
+
 [connection signal="flash_animation" from="GameManager" to="Player" method="_on_game_manager_flash_animation"]
 [connection signal="player_death" from="GameManager" to="Player" method="_on_game_manager_player_death"]
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]

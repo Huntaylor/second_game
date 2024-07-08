@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://v0e220dnttn8"]
 
 [ext_resource type="Texture2D" uid="uid://csik30soo4pr3" path="res://assets/Tiles/Characters/tile_0008.png" id="1_bpec7"]
-[ext_resource type="Script" path="res://scripts/rolling_enemy.gd" id="1_rgice"]
-[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemy_zone.tscn" id="2_i7jqw"]
+[ext_resource type="Script" path="res://scripts/enemies/rolling_enemy.gd" id="1_kdimf"]
+[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemies/enemy_zone.tscn" id="2_i7jqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_empxi"]
 radius = 12.0
 
 [node name="RollingEnemy" type="Node2D" groups=["enemies"]]
 scale = Vector2(0.75, 0.75)
-script = ExtResource("1_rgice")
+script = ExtResource("1_kdimf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
