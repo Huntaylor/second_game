@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cixkei8w34nfk"]
+[gd_scene load_steps=18 format=3 uid="uid://cixkei8w34nfk"]
 
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
 [ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player/player.tscn" id="3_uo3k0"]
-[ext_resource type="PackedScene" uid="uid://dx5cjuna07q7q" path="res://scenes/ladder.tscn" id="4_1v678"]
+[ext_resource type="PackedScene" uid="uid://0b1adio4l0fl" path="res://scenes/ladder.tscn" id="4_1v678"]
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/enemies/falling_enemy.tscn" id="4_fv6ee"]
-[ext_resource type="PackedScene" uid="uid://dpudabbi7wgbq" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
+[ext_resource type="PackedScene" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
+[ext_resource type="PackedScene" uid="uid://du3nk1g8qqa7x" path="res://scenes/pickups/coin.tscn" id="7_7gmj6"]
 [ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://assets/Fonts/PixelOperator8.ttf" id="8_2ay4p"]
 [ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/enemies/rolling_enemy/rolling_enemy.tscn" id="9_tgkx4"]
 [ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/enemies/rolling_enemy/rolling_enemy_block.tscn" id="10_av1lo"]
@@ -1093,6 +1094,18 @@ position = Vector2(1798, 36)
 
 [node name="RollingEnemyBlock2" parent="." instance=ExtResource("10_av1lo")]
 position = Vector2(1281, 36)
+
+[node name="coin" parent="." instance=ExtResource("7_7gmj6")]
+position = Vector2(2528, -54)
+
+[node name="coin2" parent="." instance=ExtResource("7_7gmj6")]
+position = Vector2(2601, -81)
+
+[node name="coin3" parent="." instance=ExtResource("7_7gmj6")]
+position = Vector2(2509, -111)
+
+[node name="coin4" parent="." instance=ExtResource("7_7gmj6")]
+position = Vector2(2419, -129)
 
 [connection signal="flash_animation" from="GameManager" to="Player" method="_on_game_manager_flash_animation"]
 [connection signal="player_death" from="GameManager" to="Player" method="_on_game_manager_player_death"]
