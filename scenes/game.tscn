@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://0b1adio4l0fl" path="res://scenes/ladder.tscn" id="4_1v678"]
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="Script" path="res://scripts/falling_enemy.gd" id="5_th35o"]
-[ext_resource type="PackedScene" uid="uid://du3nk1g8qqa7x" path="res://pickups/coin.tscn" id="7_7gmj6"]
-[ext_resource type="PackedScene" uid="uid://chiwc15p17jcq" path="res://pickups/heart.tscn" id="8_daiym"]
+[ext_resource type="PackedScene" uid="uid://du3nk1g8qqa7x" path="res://scenes/pickups/coin.tscn" id="7_7gmj6"]
+[ext_resource type="PackedScene" uid="uid://chiwc15p17jcq" path="res://scenes/pickups/heart.tscn" id="8_daiym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
