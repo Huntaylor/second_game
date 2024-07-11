@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbnew3l7arnj0"]
+[gd_scene load_steps=2 format=3 uid="uid://by0r5org0vwoc"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_62gry"]
 a = Vector2(0, -10)
 
-[node name="EnemyBlock" type="Area2D"]
+[node name="RollingEnemyBlock" type="Area2D"]
 collision_layer = 4
 collision_mask = 4
 
