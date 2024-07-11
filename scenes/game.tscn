@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://0b1adio4l0fl" path="res://scenes/ladder.tscn" id="4_1v678"]
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/enemies/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="PackedScene" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
-[ext_resource type="PackedScene" uid="uid://du3nk1g8qqa7x" path="res://scenes/pickups/coin.tscn" id="7_7gmj6"]
 [ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://assets/Fonts/PixelOperator8.ttf" id="8_2ay4p"]
+[ext_resource type="PackedScene" uid="uid://dkj6gfb4gfawl" path="res://scenes/enemies/spike.tscn" id="8_ak0c1"]
 [ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/enemies/rolling_enemy/rolling_enemy.tscn" id="9_tgkx4"]
 [ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/enemies/rolling_enemy/rolling_enemy_block.tscn" id="10_av1lo"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_it6at"]
@@ -872,114 +872,6 @@ limit_smoothed = true
 
 [node name="Enemies" type="Node" parent="." groups=["enemies"]]
 
-[node name="Node2D" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(1037, -145)
-
-[node name="Node2D2" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(1202, -19)
-
-[node name="Node2D3" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(845, -17)
-
-[node name="Node2D4" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(257, 17)
-
-[node name="Node2D5" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(1460, -24)
-
-[node name="Node2D6" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(2029, -163)
-
-[node name="Node2D7" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(2223, -234)
-
-[node name="Node2D8" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(2449, -55)
-
-[node name="Node2D9" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(2644, -216)
-
-[node name="Node2D10" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(2602, -361)
-
-[node name="Node2D11" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(3194, 36)
-
-[node name="Node2D12" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(3374, 216)
-
-[node name="Node2D13" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(3394, 360)
-
-[node name="Node2D14" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(3157, 234)
-
-[node name="Node2D15" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(3684, 488)
-
-[node name="Node2D16" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4079, 431)
-
-[node name="Node2D17" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4097, 539)
-
-[node name="Node2D18" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4312, 648)
-
-[node name="Node2D19" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4432, 574)
-
-[node name="Node2D20" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4450, 574)
-
-[node name="Node2D21" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4468, 574)
-
-[node name="Node2D22" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4486, 574)
-
-[node name="Node2D23" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4504, 574)
-
-[node name="Node2D24" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4522, 574)
-
-[node name="Node2D25" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4540, 574)
-
-[node name="Node2D26" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4558, 574)
-
-[node name="Node2D27" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4576, 574)
-
-[node name="Node2D28" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4594, 574)
-
-[node name="Node2D29" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4612, 574)
-
-[node name="Node2D30" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4630, 574)
-
-[node name="Node2D31" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4648, 574)
-
-[node name="Node2D32" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4666, 574)
-
-[node name="Node2D33" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4684, 574)
-
-[node name="Node2D34" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4702, 574)
-
-[node name="Node2D35" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4720, 574)
-
-[node name="Node2D36" parent="Enemies" instance=ExtResource("4_fv6ee")]
-position = Vector2(4738, 574)
-
 [node name="RollingEnemies" type="Node" parent="Enemies"]
 
 [node name="RollingEnemy" parent="Enemies/RollingEnemies" instance=ExtResource("9_tgkx4")]
@@ -990,6 +882,24 @@ position = Vector2(2217, 36)
 
 [node name="RollingEnemyBlock2" parent="Enemies/RollingEnemies" instance=ExtResource("10_av1lo")]
 position = Vector2(2969, 36)
+
+[node name="RollingEnemy" parent="Enemies" instance=ExtResource("9_tgkx4")]
+position = Vector2(1782, 27)
+
+[node name="RollingEnemyBlock" parent="Enemies" instance=ExtResource("10_av1lo")]
+position = Vector2(1798, 36)
+
+[node name="RollingEnemyBlock2" parent="Enemies" instance=ExtResource("10_av1lo")]
+position = Vector2(1281, 36)
+
+[node name="FallingEnemy" parent="Enemies" instance=ExtResource("4_fv6ee")]
+position = Vector2(3189, 35)
+
+[node name="Spike" parent="Enemies" instance=ExtResource("8_ak0c1")]
+position = Vector2(2494, -102)
+
+[node name="FallingEnemy2" parent="Enemies" instance=ExtResource("4_fv6ee")]
+position = Vector2(2350, -20)
 
 [node name="kill_zone" parent="." instance=ExtResource("7_2qby6")]
 position = Vector2(5224, 904)
@@ -1086,27 +996,7 @@ position = Vector2(3072, 148)
 texture_filter = 1
 position = Vector2(3647, 601)
 
-[node name="RollingEnemy" parent="." instance=ExtResource("9_tgkx4")]
-position = Vector2(1782, 27)
-
-[node name="RollingEnemyBlock" parent="." instance=ExtResource("10_av1lo")]
-position = Vector2(1798, 36)
-
-[node name="RollingEnemyBlock2" parent="." instance=ExtResource("10_av1lo")]
-position = Vector2(1281, 36)
-
-[node name="coin" parent="." instance=ExtResource("7_7gmj6")]
-position = Vector2(2528, -54)
-
-[node name="coin2" parent="." instance=ExtResource("7_7gmj6")]
-position = Vector2(2601, -81)
-
-[node name="coin3" parent="." instance=ExtResource("7_7gmj6")]
-position = Vector2(2509, -111)
-
-[node name="coin4" parent="." instance=ExtResource("7_7gmj6")]
-position = Vector2(2419, -129)
-
 [connection signal="flash_animation" from="GameManager" to="Player" method="_on_game_manager_flash_animation"]
 [connection signal="player_death" from="GameManager" to="Player" method="_on_game_manager_player_death"]
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
+[connection signal="ready" from="Enemies/RollingEnemies/RollingEnemy" to="GameManager" method="_on_rolling_enemy_ready"]

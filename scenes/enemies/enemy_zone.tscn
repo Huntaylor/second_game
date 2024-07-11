@@ -6,4 +6,5 @@
 collision_mask = 2
 script = ExtResource("1_8lgnw")
 
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="take_damage" from="." to="." method="_on_take_damage"]

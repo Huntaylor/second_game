@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var ray_cast_down = $RayCastDown
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var collision_shape_2d = $EnemyZone/CollisionShape2D
 @onready var ray_cast_up = $RayCastUp
 @onready var timer = $Timer
 @onready var game_manager = %GameManager

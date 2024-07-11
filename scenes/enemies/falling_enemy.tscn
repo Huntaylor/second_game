@@ -60,7 +60,6 @@ target_position = Vector2(0, 11)
 wait_time = 2.0
 one_shot = true
 
-[connection signal="ready" from="." to="EnemyZone" method="_on_node_2d_ready"]
 [connection signal="ready" from="AnimatedSprite2D" to="EnemyZone" method="_on_animated_sprite_2d_ready"]
 [connection signal="body_entered" from="EnemyZone" to="EnemyZone" method="_on_body_entered"]
 [connection signal="ready" from="EnemyZone" to="EnemyZone" method="_on_ready"]
