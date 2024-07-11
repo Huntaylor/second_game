@@ -21,3 +21,6 @@ func take_damage():
 
 func _on_timer_timeout():
 	isHit = false
+
+func _ready():
+	pass
