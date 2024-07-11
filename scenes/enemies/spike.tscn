@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkj6gfb4gfawl"]
+[gd_scene load_steps=8 format=3 uid="uid://iyrco5psyldb"]
 
 [ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemies/enemy_zone.tscn" id="1_3ks28"]
 [ext_resource type="Script" path="res://scripts/enemies/spike.gd" id="1_mt1v0"]
