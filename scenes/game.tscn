@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
-[ext_resource type="PackedScene" uid="uid://c26atjy31ec5n" path="res://scenes/player/player.tscn" id="3_uo3k0"]
+[ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player/player.tscn" id="3_uo3k0"]
 [ext_resource type="PackedScene" uid="uid://0b1adio4l0fl" path="res://scenes/ladder.tscn" id="4_1v678"]
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/enemies/falling_enemy.tscn" id="4_fv6ee"]
 [ext_resource type="PackedScene" uid="uid://3q3or6eqv0a4" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
 [ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://assets/Fonts/PixelOperator8.ttf" id="8_2ay4p"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/spike.tscn" id="8_ak0c1"]
+[ext_resource type="PackedScene" uid="uid://iyrco5psyldb" path="res://scenes/enemies/spike.tscn" id="8_ak0c1"]
 [ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/enemies/rolling_enemy/rolling_enemy.tscn" id="9_tgkx4"]
 [ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/enemies/rolling_enemy/rolling_enemy_block.tscn" id="10_av1lo"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_it6at"]
@@ -863,7 +863,7 @@ layer_2/tile_data = PackedInt32Array(-1900486, 851968, 7, -1900485, 917504, 7, -
 
 [node name="Player" parent="." instance=ExtResource("3_uo3k0")]
 z_index = 5
-position = Vector2(4903, 618)
+position = Vector2(44, -210)
 collision_layer = 2
 
 [node name="Player#Camera2D" type="Camera2D" parent="Player"]

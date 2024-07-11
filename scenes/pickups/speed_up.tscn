@@ -67,6 +67,7 @@ frame_progress = 0.313344
 shape = SubResource("RectangleShape2D_w066w")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

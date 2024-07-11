@@ -10,6 +10,8 @@ var speed = 0
 var lives = 3
 var isHit = false
 
+
+
 func take_damage():
 	if !isHit:
 		isHit = true
@@ -23,4 +25,4 @@ func _on_timer_timeout():
 	isHit = false
 
 func _ready():
-	pass
+	Engine.time_scale = 1
