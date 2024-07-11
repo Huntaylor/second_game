@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://iyrco5psyldb"]
+
+[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemies/enemy_zone.tscn" id="1_3ks28"]
+[ext_resource type="Script" path="res://scripts/enemies/spike.gd" id="1_mt1v0"]
+[ext_resource type="Texture2D" uid="uid://45myp7feiecj" path="res://assets/Tiles/Characters/tile_0016.png" id="2_doyxq"]
+[ext_resource type="Texture2D" uid="uid://gg5m3n3h0utc" path="res://assets/Tiles/Characters/tile_0015.png" id="3_c14xb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bq05k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_doyxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c14xb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8x24h"]
+radius = 9.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hesd7"]
+radius = 6.0
+
+[node name="Spike" type="CharacterBody2D"]
+position = Vector2(0, -13)
+collision_layer = 21
+collision_mask = 21
+script = ExtResource("1_mt1v0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-12, -11)
+sprite_frames = SubResource("SpriteFrames_bq05k")
+autoplay = "default"
+frame_progress = 0.712418
+centered = false
+
+[node name="EnemyZone" parent="." instance=ExtResource("1_3ks28")]
+collision_layer = 17
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyZone"]
+position = Vector2(-0.5, 2)
+shape = SubResource("CircleShape2D_8x24h")
+
+[node name="JumpRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -35)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_hesd7")
+
+[node name="LeftRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, 11)
+target_position = Vector2(-10, 0)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="RightRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, 11)
+target_position = Vector2(9, 0)
+collision_mask = 4
+collide_with_areas = true
+
+[connection signal="body_entered" from="EnemyZone" to="EnemyZone" method="_on_body_entered"]
+[connection signal="take_damage" from="EnemyZone" to="." method="_on_enemy_zone_take_damage"]
