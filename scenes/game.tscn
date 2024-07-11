@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
 [ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player/player.tscn" id="3_uo3k0"]
-[ext_resource type="PackedScene" uid="uid://0b1adio4l0fl" path="res://scenes/ladder.tscn" id="4_1v678"]
+[ext_resource type="PackedScene" uid="uid://dx5cjuna07q7q" path="res://scenes/ladder.tscn" id="4_1v678"]
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/enemies/falling_enemy.tscn" id="4_fv6ee"]
-[ext_resource type="PackedScene" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
+[ext_resource type="PackedScene" uid="uid://dpudabbi7wgbq" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
 [ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://assets/Fonts/PixelOperator8.ttf" id="8_2ay4p"]
-[ext_resource type="PackedScene" uid="uid://dkj6gfb4gfawl" path="res://scenes/enemies/spike.tscn" id="8_ak0c1"]
+[ext_resource type="PackedScene" uid="uid://iyrco5psyldb" path="res://scenes/enemies/spike.tscn" id="8_ak0c1"]
 [ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/enemies/rolling_enemy/rolling_enemy.tscn" id="9_tgkx4"]
-[ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/enemies/rolling_enemy/rolling_enemy_block.tscn" id="10_av1lo"]
+[ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/enemies/enemy_block.tscn" id="10_av1lo"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_it6at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
@@ -862,7 +862,7 @@ layer_2/tile_data = PackedInt32Array(-1900486, 851968, 7, -1900485, 917504, 7, -
 
 [node name="Player" parent="." instance=ExtResource("3_uo3k0")]
 z_index = 5
-position = Vector2(2555, -63)
+position = Vector2(4327, 688)
 collision_layer = 2
 
 [node name="Player#Camera2D" type="Camera2D" parent="Player"]
@@ -895,11 +895,22 @@ position = Vector2(1281, 36)
 [node name="FallingEnemy" parent="Enemies" instance=ExtResource("4_fv6ee")]
 position = Vector2(3189, 35)
 
-[node name="Spike" parent="Enemies" instance=ExtResource("8_ak0c1")]
-position = Vector2(2494, -102)
-
 [node name="FallingEnemy2" parent="Enemies" instance=ExtResource("4_fv6ee")]
 position = Vector2(2350, -20)
+
+[node name="SpikeEnemies" type="Node" parent="Enemies"]
+
+[node name="Spike" parent="Enemies/SpikeEnemies" instance=ExtResource("8_ak0c1")]
+position = Vector2(4332, 759)
+
+[node name="Spike2" parent="Enemies/SpikeEnemies" instance=ExtResource("8_ak0c1")]
+position = Vector2(3302, 761)
+
+[node name="SpikeEnemyBlock" parent="Enemies/SpikeEnemies" instance=ExtResource("10_av1lo")]
+position = Vector2(3275, 774)
+
+[node name="SpikeEnemyBlock2" parent="Enemies/SpikeEnemies" instance=ExtResource("10_av1lo")]
+position = Vector2(4375, 774)
 
 [node name="kill_zone" parent="." instance=ExtResource("7_2qby6")]
 position = Vector2(5224, 904)
@@ -995,6 +1006,30 @@ position = Vector2(3072, 148)
 [node name="Ladder2" parent="Ladders" instance=ExtResource("4_1v678")]
 texture_filter = 1
 position = Vector2(3647, 601)
+
+[node name="Spike" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(3807, 758)
+
+[node name="Spike2" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(3784, 508)
+
+[node name="Spike3" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(3693, 525)
+
+[node name="Spike4" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(3610, 491)
+
+[node name="Spike5" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(3862, 487)
+
+[node name="Spike6" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(3984, 662)
+
+[node name="Spike7" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(4251, 596)
+
+[node name="Spike8" parent="." instance=ExtResource("8_ak0c1")]
+position = Vector2(3888, 638)
 
 [connection signal="flash_animation" from="GameManager" to="Player" method="_on_game_manager_flash_animation"]
 [connection signal="player_death" from="GameManager" to="Player" method="_on_game_manager_player_death"]
