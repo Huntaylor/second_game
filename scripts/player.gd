@@ -49,9 +49,13 @@ func _physics_process(delta):
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
+<<<<<<< Updated upstream
 	
 
 	
+=======
+		
+>>>>>>> Stashed changes
 	if direction:
 		velocity.x = direction * SPEED
 		
