@@ -35,10 +35,6 @@ region = Rect2(128, 160, 32, 32)
 atlas = ExtResource("2_hpcae")
 region = Rect2(160, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y0pwl"]
-atlas = ExtResource("2_hpcae")
-region = Rect2(192, 160, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3er8g"]
 atlas = ExtResource("2_hpcae")
 region = Rect2(0, 64, 32, 32)
@@ -107,6 +103,23 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_k5j3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd5r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d07y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1v58")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yuo1l")
 }, {
 "duration": 1.0,
@@ -134,9 +147,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iarqk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y0pwl")
 }],
 "loop": true,
 "name": &"jump",
@@ -199,15 +209,94 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_200yp"]
 radius = 8.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_f0ck6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kd0ok"]
+resource_name = "damage_flash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f4vwx"]
+_data = {
+"RESET": SubResource("Animation_f0ck6"),
+"damage_flash": SubResource("Animation_kd0ok")
+}
+
+[node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_nyfdt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_uqmkx")
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_d8uqm")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_200yp")
+
+[node name="FlashAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f4vwx")
+}
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="DamageSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dsnm5")
+bus = &"SFX"
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

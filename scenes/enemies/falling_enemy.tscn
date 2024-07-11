@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2h65ntylr8fa"]
+[gd_scene load_steps=9 format=3 uid="uid://c2h65ntylr8fa"]
 
+[ext_resource type="Script" path="res://scripts/enemies/falling_enemy.gd" id="1_80rp3"]
 [ext_resource type="Texture2D" uid="uid://daeuxk8kcsthn" path="res://assets/Tiles/Characters/tile_0011.png" id="1_mn57x"]
 [ext_resource type="Texture2D" uid="uid://5hsqw01jcoa8" path="res://assets/Tiles/Characters/tile_0012.png" id="1_pfk7d"]
-[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemy_zone.tscn" id="2_ayhfl"]
+[ext_resource type="PackedScene" uid="uid://bfobr8wcx6cjb" path="res://scenes/enemies/enemy_zone.tscn" id="2_ayhfl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahyvg"]
 atlas = ExtResource("1_pfk7d")
@@ -34,8 +35,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejsl4"]
 size = Vector2(18, 18)
 
-[node name="Node2D" type="Node2D"]
+[node name="FallingEnemy" type="Node2D"]
 position = Vector2(0, -64)
+script = ExtResource("1_80rp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
@@ -43,7 +45,6 @@ sprite_frames = SubResource("SpriteFrames_2vblc")
 animation = &"idle"
 
 [node name="EnemyZone" parent="." instance=ExtResource("2_ayhfl")]
-collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyZone"]
 shape = SubResource("RectangleShape2D_ejsl4")
@@ -55,6 +56,13 @@ collision_mask = 2
 [node name="RayCastUp" type="RayCast2D" parent="."]
 target_position = Vector2(0, 11)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="ready" from="." to="EnemyZone" method="_on_node_2d_ready"]
 [connection signal="ready" from="AnimatedSprite2D" to="EnemyZone" method="_on_animated_sprite_2d_ready"]
 [connection signal="body_entered" from="EnemyZone" to="EnemyZone" method="_on_body_entered"]
+[connection signal="ready" from="EnemyZone" to="EnemyZone" method="_on_ready"]
+[connection signal="take_damage" from="EnemyZone" to="." method="_on_enemy_zone_take_damage"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
