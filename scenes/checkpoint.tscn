@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3n5js8ptbdnb"]
+
+[ext_resource type="Script" path="res://scripts/Checkpoint.gd" id="1_dpy8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsboc"]
+
+[node name="Checkpoint" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_dpy8u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fsboc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -400.0
 const FALL_GRAVITY := 1000.0
 const GRAVITY := 1500.0
 
+
+var spawner = null
 var isDead = false
 
 @onready var damage_sfx = $DamageSFX
