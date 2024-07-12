@@ -3,7 +3,7 @@ signal take_damage
 
 var damagePlayer = false
 
-func _process(delta):
+func _process(_delta):
 	if damagePlayer:
 		emit_signal('take_damage')
 
@@ -16,3 +16,5 @@ func _on_body_entered(_body):
 func _on_body_exited(_body):
 	if (_body.name == 'Player'):
 		damagePlayer = false
+
+

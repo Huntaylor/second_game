@@ -7,6 +7,7 @@ const FALL_GRAVITY := 1000.0
 const GRAVITY := 1500.0
 
 var isDead = false
+@onready var jump_sfx = $JumpSFX
 
 @onready var damage_sfx = $DamageSFX
 @onready var game_manager = %GameManager
@@ -40,6 +41,7 @@ func _physics_process(delta):
 
 		# Handle jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
+			jump_sfx.play()
 			velocity.y = JUMP_VELOCITY
 			
 		# Get the input direction and handle the movement/deceleration.
@@ -79,6 +81,7 @@ func _physics_process(delta):
 func _on_game_manager_flash_animation():
 	if !isDead:
 		flash_animation.play("damage_flash")
+		
 
 
 func _on_game_manager_player_death():

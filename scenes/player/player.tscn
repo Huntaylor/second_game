@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://ecboai1qjgr7"]
+[gd_scene load_steps=40 format=3 uid="uid://ecboai1qjgr7"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_nyfdt"]
 [ext_resource type="Shader" path="res://shaders/damage.gdshader" id="2_0rfn6"]
 [ext_resource type="Texture2D" uid="uid://uagmabg47f1b" path="res://assets/Character/knight.png" id="2_hpcae"]
 [ext_resource type="AudioStream" uid="uid://benuixkpwns0v" path="res://assets/sfx/hitHurt.wav" id="4_dsnm5"]
+[ext_resource type="AudioStream" uid="uid://c0h0w6d8j42j" path="res://assets/sfx/jump.wav" id="5_sp0ou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uqmkx"]
 shader = ExtResource("2_0rfn6")
@@ -320,5 +321,9 @@ wait_time = 2.0
 
 [node name="DamageSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dsnm5")
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sp0ou")
+volume_db = -20.937
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
