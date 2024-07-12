@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://cixkei8w34nfk"]
+[gd_scene load_steps=20 format=3 uid="uid://cixkei8w34nfk"]
 
 [ext_resource type="Texture2D" uid="uid://dowehph3prnj5" path="res://assets/Tilemap/tilemap_packed.png" id="1_wspb1"]
 [ext_resource type="Texture2D" uid="uid://cr1r8kddio52m" path="res://assets/Tilemap/tilemap-backgrounds_packed.png" id="2_udmgk"]
 [ext_resource type="PackedScene" uid="uid://ecboai1qjgr7" path="res://scenes/player/player.tscn" id="3_uo3k0"]
 [ext_resource type="PackedScene" uid="uid://dx5cjuna07q7q" path="res://scenes/ladder.tscn" id="4_1v678"]
 [ext_resource type="PackedScene" uid="uid://c2h65ntylr8fa" path="res://scenes/enemies/falling_enemy.tscn" id="4_fv6ee"]
-[ext_resource type="PackedScene" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
+[ext_resource type="PackedScene" uid="uid://dpudabbi7wgbq" path="res://scenes/kill_zone.tscn" id="7_2qby6"]
 [ext_resource type="FontFile" uid="uid://dfk2bi0vch5uq" path="res://assets/Fonts/PixelOperator8.ttf" id="8_2ay4p"]
 [ext_resource type="PackedScene" uid="uid://iyrco5psyldb" path="res://scenes/enemies/spike.tscn" id="8_ak0c1"]
 [ext_resource type="PackedScene" uid="uid://v0e220dnttn8" path="res://scenes/enemies/rolling_enemy/rolling_enemy.tscn" id="9_tgkx4"]
 [ext_resource type="PackedScene" uid="uid://myilc60pijfp" path="res://scenes/enemies/enemy_block.tscn" id="10_av1lo"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_it6at"]
+[ext_resource type="PackedScene" uid="uid://du3nk1g8qqa7x" path="res://scenes/pickups/coin.tscn" id="12_anu2o"]
+[ext_resource type="PackedScene" uid="uid://chiwc15p17jcq" path="res://scenes/pickups/heart.tscn" id="13_m07rf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p67dm"]
 texture = ExtResource("1_wspb1")
@@ -1009,6 +1011,15 @@ position = Vector2(3647, 601)
 
 [node name="Spike" parent="." instance=ExtResource("8_ak0c1")]
 position = Vector2(3807, 758)
+
+[node name="coin" parent="." instance=ExtResource("12_anu2o")]
+position = Vector2(4470, 743)
+
+[node name="coin2" parent="." instance=ExtResource("12_anu2o")]
+position = Vector2(4540, 746)
+
+[node name="heart" parent="." instance=ExtResource("13_m07rf")]
+position = Vector2(4667, 746)
 
 [connection signal="flash_animation" from="GameManager" to="Player" method="_on_game_manager_flash_animation"]
 [connection signal="player_death" from="GameManager" to="Player" method="_on_game_manager_player_death"]

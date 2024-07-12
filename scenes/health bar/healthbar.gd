@@ -6,7 +6,7 @@ extends ProgressBar
 
 
 var health = 0
-
+var max_health = 3
 
 
 
