@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://ecboai1qjgr7"]
+[gd_scene load_steps=40 format=3 uid="uid://ecboai1qjgr7"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_nyfdt"]
 [ext_resource type="Shader" path="res://shaders/damage.gdshader" id="2_0rfn6"]
 [ext_resource type="Texture2D" uid="uid://uagmabg47f1b" path="res://assets/Character/knight.png" id="2_hpcae"]
 [ext_resource type="AudioStream" uid="uid://benuixkpwns0v" path="res://assets/sfx/hitHurt.wav" id="4_dsnm5"]
+[ext_resource type="PackedScene" uid="uid://c0c6ydj2yi8hu" path="res://scenes/health bar/healthbar.tscn" id="5_gmhvl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uqmkx"]
 shader = ExtResource("2_0rfn6")
@@ -321,4 +322,12 @@ wait_time = 2.0
 [node name="DamageSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dsnm5")
 
+[node name="Healthbar" parent="." instance=ExtResource("5_gmhvl")]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 11.0
+offset_bottom = -8.0
+
+[connection signal="call_healthbar" from="." to="Healthbar" method="_on_player_call_healthbar"]
+[connection signal="set_healthbar" from="." to="Healthbar" method="_on_player_set_healthbar"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

@@ -1,12 +1,16 @@
 extends Node
 
 @onready var timer = $Timer
+@onready var healthbar = $Healthbar
 
 signal flash_animation
 signal player_death
 
 var lives = 3
 var isHit = false
+
+
+
 
 func take_damage():
 	if !isHit:
@@ -23,5 +27,5 @@ func _on_timer_timeout():
 	isHit = false
 
 
-func _ready():
-	pass
+
+

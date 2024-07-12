@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0c6ydj2yi8hu"]
+
+[ext_resource type="Script" path="res://scenes/health bar/healthbar.gd" id="1_yqx6i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c556c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jig4"]
+bg_color = Color(0.788235, 0.505882, 0.556863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrw4v"]
+bg_color = Color(0.298039, 0.0235294, 0.278431, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(1.78084e-06, 0.515275, 0.417374, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shhb2"]
+
+[node name="Healthbar" type="ProgressBar"]
+z_index = 1
+offset_right = 240.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_c556c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2jig4")
+value = 60.0
+show_percentage = false
+script = ExtResource("1_yqx6i")
+
+[node name="DamageBar" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_wrw4v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_shhb2")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.035
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

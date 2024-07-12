@@ -13,9 +13,16 @@ var isDead = false
 @onready var flash_animation = $FlashAnimation
 @onready var animated_sprite= $AnimatedSprite2D
 @onready var death_timer = $DeathTimer
+@onready var healthbar = $Healthbar
 
+
+signal call_healthbar
+signal set_healthbar
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready():
+	emit_signal("set_healthbar",game_manager.lives)
 
 func get_gravity():
 	if velocity.y < 0:
@@ -78,6 +85,7 @@ func _physics_process(delta):
 
 func _on_game_manager_flash_animation():
 	if !isDead:
+		emit_signal('call_healthbar',game_manager.lives)
 		flash_animation.play("damage_flash")
 
 
